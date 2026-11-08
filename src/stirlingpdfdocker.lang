@@ -1,0 +1,195 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "stirlingpdfdocker".
+# File name MUST be: <appid>.lang.  23-language superset (14 required by TOS).
+# The App Center picks the text matching the user's device language;
+# untranslated nodes fall back to English, which the official guide allows.
+# Fields: name (app title), auth (upstream author), descript (up to 512
+# chars), release_note, important (up to 512 chars).
+# Translations come from tosapp.json "translations"; run
+#   tosdocker lang <app>          to re-render this file
+#   tosdocker translate <app>     to see what still needs translating
+# ===========================================================================
+[en-us]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[zh-cn]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF 是一个本地部署的 PDF 工具箱：合并、拆分、旋转、压缩、OCR、格式转换、加水印、签名等，全部通过网页操作。文件在你的 NAS 上处理，不会发送给第三方。本应用使用 Docker Hub 官方镜像并以非 root 用户运行，设置与工作数据保存在应用数据目录。"
+release_note = "1. 首个版本：Stirling PDF 3.3.0，来自 Docker Hub，x86_64 + aarch64 双包，非 root。"
+important    = "打开网页即可使用，默认未开启登录。设置保存在 DockerAppData/stirlingpdfdocker/configs，工作数据在 .../data。大文件与 OCR 需要足够的内存/CPU，首次启动可能需要 1-2 分钟。需要 DockerEngine；无法访问 Docker Hub 时请先配置镜像加速。卸载删除数据前请备份 configs。应用通过局域网 HTTP 访问。"
+
+[zh-hk]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF 是一個本地部署的 PDF 工具箱：合併、拆分、旋轉、壓縮、OCR、格式轉換、加浮水印、簽名等，全部透過網頁操作。檔案在你的 NAS 上處理，不會傳送給第三方。本應用使用 Docker Hub 官方鏡像並以非 root 使用者運行，設定與工作資料保存在應用資料目錄。"
+release_note = "1. 首個版本：Stirling PDF 3.3.0，來自 Docker Hub，x86_64 + aarch64 雙包，非 root。"
+important    = "開啟網頁即可使用，預設未開啟登入。設定保存在 DockerAppData/stirlingpdfdocker/configs，工作資料在 .../data。大檔案與 OCR 需要足夠的記憶體/CPU，首次啟動可能需要 1-2 分鐘。需要 DockerEngine；無法存取 Docker Hub 時請先設定鏡像加速。解除安裝刪除資料前請備份 configs。應用透過局域網 HTTP 存取。"
+
+[fr-fr]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[de-de]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[it-it]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[es-es]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[hu-hu]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ja-jp]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ko-kr]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[pl-pl]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ru-ru]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[tr-tr]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[pt-pt]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[ar-sa]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[cs-cz]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[he-il]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[id-id]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[nb-no]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[nl-nl]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[sv-se]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[th-th]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
+[vi-vn]
+name         = "Stirling PDF"
+auth         = "Stirling-Tools"
+version      = "@@VERSION@@"
+descript     = "Stirling PDF is a locally hosted PDF toolbox: merge, split, rotate, compress, OCR, convert, watermark, sign and more, all from a web UI. Files are processed on your NAS and are not sent to a third party. This package runs the official Docker Hub image as a non-root container and keeps settings and working data in the application data folder."
+release_note = "1. First release: Stirling PDF 3.3.0 from Docker Hub, x86_64 + aarch64, non-root."
+important    = "Open the web UI and use the tools directly; login is disabled by default. Settings live in DockerAppData/stirlingpdfdocker/configs, working data in .../data. Large PDFs and OCR need RAM/CPU; the first start can take 1-2 minutes. Needs DockerEngine; add a registry mirror if Docker Hub is unreachable. Back up configs before uninstalling with data removal. Plain HTTP on the LAN."
+
