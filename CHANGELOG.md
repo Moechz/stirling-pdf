@@ -2,7 +2,7 @@
 
 All notable user-visible changes to the Stirling PDF TOS application package.
 
-## 3.3.0-1 — 2026-11-09
+## 3.3.0-2 — 2026-11-09
 
 ### Added
 - First release. Stirling PDF (`stirlingtools/stirling-pdf:3.3.0`, Docker Hub official image, unmodified)

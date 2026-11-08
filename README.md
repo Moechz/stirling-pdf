@@ -20,7 +20,7 @@ Stirling PDF on TOS 7 through the App Center:
 | Container image | `stirlingtools/stirling-pdf:3.3.0` (Docker Hub, used unmodified) |
 | Open | `http://<NAS-IP>:8028/` (container port 8080) |
 | Runs as | non-root, `user: "1000:1000"` |
-| Persistent data | `/configs` → `/Volume1/DockerAppData/stirlingpdfdocker/configs`, `/data` → `/Volume1/DockerAppData/stirlingpdfdocker/data`, `/logs` → `/Volume1/DockerAppData/stirlingpdfdocker/logs` |
+| Persistent data | `/configs` → `/Volume1/DockerAppData/stirlingpdfdocker/configs`, `/data` → `/Volume1/DockerAppData/stirlingpdfdocker/data`, `/logs` → `/Volume1/DockerAppData/stirlingpdfdocker/logs`, `/storage` → `/Volume1/DockerAppData/stirlingpdfdocker/storage`, `/pipeline` → `/Volume1/DockerAppData/stirlingpdfdocker/pipeline`, `/customFiles` → `/Volume1/DockerAppData/stirlingpdfdocker/customFiles` |
 | Logs | `docker logs stirlingpdfdocker` (stdout/stderr) |
 
 `configs` holds application settings and templates; `data` is the working data folder used by the PDF pipelines. Uploaded files are processed inside the container and are not kept as a permanent library unless you save them.
@@ -28,10 +28,11 @@ Stirling PDF on TOS 7 through the App Center:
 ## Design highlights
 
 - **Non-root.** `user: "1000:1000"`; verified on real hardware (the container reports uid 1000).
+- **Entrypoint wrapper**: the upstream image is built to run as root and keeps state in root-owned paths, so the compose file replaces the entrypoint with `src/entrypoint.sh`, which makes the service run as an unprivileged user. See that file for the details.
 - **Fixed image tag, never `:latest`**, Docker Hub only, no `privileged`, no `network_mode: host`, and no Docker socket, no `cap_add`.
 - **Health check** probing the service on container port 8080.
 - **Deterministic build**: GNU tar with uid/gid 0 and zeroed timestamps, gzip without a timestamp, plus the review-standards self-check above.
-- **Non-root.** Runs as `1000:1000` with the mounted config/data folders writable.
+- **Rootless Spring Boot.** `src/entrypoint.sh` starts `/app/app.jar` directly as uid 1000 on 8080; the upstream init script is bypassed because it needs root.
 - **Two volumes, one port.** `/configs` + `/data`; only 8080 is published.
 - **Health check** probes `/` on 8080; the first start can take 1-2 minutes.
 - **Fixed image tag**, Docker Hub only, no privileged mode, no host network, no Docker socket.
@@ -47,20 +48,26 @@ table lists what is created and how it behaves. Nothing else is written.
 | `configs` | application settings, templates and UI preferences | first start | small | never overwritten; back it up |
 | `data` | working data used by PDF pipelines | first start | transient; grows with temporary jobs | safe to clean when no job is running |
 | `logs` | application logs | first start | small | safe to rotate/clean |
+| `storage` | application storage used by PDF features | first start | grows with use | back it up with configs |
+| `pipeline` | pipeline working directory | first start | transient | safe to clean |
+| `customFiles` | user-provided custom files | first start | user controlled | back it up |
 | `/Volume1/DockerAppData/stirlingpdfdocker/configs` | Stirling PDF application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
 | `/Volume1/DockerAppData/stirlingpdfdocker/data` | Stirling PDF application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
 | `/Volume1/DockerAppData/stirlingpdfdocker/logs` | Stirling PDF application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
+| `/Volume1/DockerAppData/stirlingpdfdocker/storage` | Stirling PDF application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
+| `/Volume1/DockerAppData/stirlingpdfdocker/pipeline` | Stirling PDF application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
+| `/Volume1/DockerAppData/stirlingpdfdocker/customFiles` | Stirling PDF application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
 
 ## Build
 
 ```bash
 scripts/build.sh                  # -> out/stirlingpdfdocker.tar.gz + .sha256
-scripts/build.sh 3.3.0-2   # packaging iteration bump
-scripts/build.sh 3.3.0-1 aarch64
+scripts/build.sh 3.3.0-3   # packaging iteration bump
+scripts/build.sh 3.3.0-2 aarch64
 ```
 
 The build stages the four files, substitutes the version/platform placeholders,
-removes CRLF/BOM/AppleDouble, then runs
+embeds `src/entrypoint.sh` into the compose file (escaping every `$` as `$$`), removes CRLF/BOM/AppleDouble, then runs
 `tools/verify.py`, a review-standards self-check (archive layout, JSON validity,
 required fields, 14+ language coverage, version consistency, Docker-Hub-only
 images, fixed tag, reserved/recommended host ports, non-root user, per-service
@@ -82,12 +89,12 @@ bash test/install-and-verify.sh                  # on-device E2E (needs root)
 ## Store submission checklist
 
 1. Public GitHub repo (code + README only).
-2. Release **tag `v3.3.0-1`**, assets `stirlingpdfdocker.tar.gz` +
+2. Release **tag `v3.3.0-2`**, assets `stirlingpdfdocker.tar.gz` +
    `stirlingpdfdocker.tar.gz.sha256` (Docker asset naming: `<app_id>.tar.gz`, **no
    platform suffix**).
 3. Developer platform → Add Application: ID `stirlingpdfdocker`, package type Docker,
    repository URL, architecture `x86_64`.
-4. Version Management → Add Version `3.3.0-1` → automated validation → review.
+4. Version Management → Add Version `3.3.0-2` → automated validation → review.
 
 ## License / branding
 

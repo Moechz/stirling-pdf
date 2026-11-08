@@ -4,7 +4,10 @@
   "image": "stirlingtools/stirling-pdf:3.3.0",
   "repo_name": "stirling-pdf",
   "github_repo": "stirling-pdf",
-  "mode": "plain",
+  "version": "3.3.0-2",
+  "mode": "wrapper",
+  "entrypoint_file": "specs/stirling-entrypoint.sh",
+  "wrapper_note": "the upstream init script creates symlinks under /usr/local/bin and needs root;\nTOS forbids root containers, so this wrapper starts the unmodified Spring Boot\njar directly as uid 1000 on 8080, with configs/logs/storage/pipeline/customFiles\nmounted writable.\n",
   "container_port": 8080,
   "host_port": 8028,
   "category": [
@@ -23,6 +26,18 @@
     {
       "host": "/Volume1/DockerAppData/stirlingpdfdocker/logs",
       "container": "/logs"
+    },
+    {
+      "host": "/Volume1/DockerAppData/stirlingpdfdocker/storage",
+      "container": "/storage"
+    },
+    {
+      "host": "/Volume1/DockerAppData/stirlingpdfdocker/pipeline",
+      "container": "/pipeline"
+    },
+    {
+      "host": "/Volume1/DockerAppData/stirlingpdfdocker/customFiles",
+      "container": "/customFiles"
     }
   ],
   "env": {
@@ -32,10 +47,10 @@
     "CMD-SHELL",
     "curl -s -o /dev/null http://127.0.0.1:8080/ || exit 1"
   ],
-  "healthcheck_interval": "30s",
+  "healthcheck_interval": "15s",
   "healthcheck_timeout": "10s",
   "healthcheck_retries": 3,
-  "healthcheck_start_period": "120s",
+  "healthcheck_start_period": "60s",
   "auth": "Stirling-Tools",
   "upstream_url": "https://github.com/Stirling-Tools/Stirling-PDF",
   "upstream_license": "MIT",
@@ -57,7 +72,7 @@
   },
   "data_notes": "`configs` holds application settings and templates; `data` is the working data folder used by the PDF pipelines. Uploaded files are processed inside the container and are not kept as a permanent library unless you save them.",
   "design_notes": [
-    "**Non-root.** Runs as `1000:1000` with the mounted config/data folders writable.",
+    "**Rootless Spring Boot.** `src/entrypoint.sh` starts `/app/app.jar` directly as uid 1000 on 8080; the upstream init script is bypassed because it needs root.",
     "**Two volumes, one port.** `/configs` + `/data`; only 8080 is published.",
     "**Health check** probes `/` on 8080; the first start can take 1-2 minutes.",
     "**Fixed image tag**, Docker Hub only, no privileged mode, no host network, no Docker socket."
@@ -88,6 +103,27 @@
       "created": "first start",
       "growth": "small",
       "lifecycle": "safe to rotate/clean"
+    },
+    {
+      "path": "storage",
+      "purpose": "application storage used by PDF features",
+      "created": "first start",
+      "growth": "grows with use",
+      "lifecycle": "back it up with configs"
+    },
+    {
+      "path": "pipeline",
+      "purpose": "pipeline working directory",
+      "created": "first start",
+      "growth": "transient",
+      "lifecycle": "safe to clean"
+    },
+    {
+      "path": "customFiles",
+      "purpose": "user-provided custom files",
+      "created": "first start",
+      "growth": "user controlled",
+      "lifecycle": "back it up"
     }
   ],
   "official": "https://github.com/Stirling-Tools/Stirling-PDF",
@@ -97,7 +133,6 @@
   "compose_project": "stirlingpdfdocker",
   "upstream_version": "3.3.0",
   "release_tag_prefix": "v",
-  "version": "3.3.0-1",
   "docker_socket": false,
   "group_add": []
 }
