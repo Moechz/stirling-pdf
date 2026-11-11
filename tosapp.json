@@ -134,5 +134,9 @@
   "upstream_version": "3.3.0",
   "release_tag_prefix": "v",
   "docker_socket": false,
-  "group_add": []
+  "group_add": [],
+  "platforms": [
+    "x86_64",
+    "aarch64"
+  ]
 }
