@@ -4,7 +4,7 @@
   "image": "stirlingtools/stirling-pdf:3.3.0",
   "repo_name": "stirling-pdf",
   "github_repo": "stirling-pdf",
-  "version": "3.3.0-2",
+  "version": "3.3.0-3",
   "mode": "wrapper",
   "entrypoint_file": "specs/stirling-entrypoint.sh",
   "wrapper_note": "the upstream init script creates symlinks under /usr/local/bin and needs root;\nTOS forbids root containers, so this wrapper starts the unmodified Spring Boot\njar directly as uid 1000 on 8080, with configs/logs/storage/pipeline/customFiles\nmounted writable.\n",
